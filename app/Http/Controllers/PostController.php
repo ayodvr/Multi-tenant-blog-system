@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
 
 
 class PostController extends Controller implements HasMiddleware
@@ -32,8 +33,6 @@ class PostController extends Controller implements HasMiddleware
      */
     public function store(StorePostRequest $request)
     {
-        dd($request->all());
-        
         $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -46,9 +45,10 @@ class PostController extends Controller implements HasMiddleware
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return response()->json($post);
     }
 
     /**
@@ -58,7 +58,7 @@ class PostController extends Controller implements HasMiddleware
     {
         Gate::authorize('modify', $post);
 
-        $post = Post::where('tenant_id', auth()->user()->tenant->id)->findOrFail($id);
+        $post = Post::where('tenant_id', auth()->user()->tenant->id)->first();
         $post->update($request->only('title', 'content'));
         return response()->json($post);
     }
@@ -70,7 +70,7 @@ class PostController extends Controller implements HasMiddleware
     {
         Gate::authorize('modify', $post);
 
-        $post = Post::where('tenant_id', auth()->user()->tenant->id)->findOrFail($id);
+        $post = Post::where('tenant_id', auth()->user()->tenant->id)->first();
         $post->delete();
         return response()->json(['message' => 'Deleted']);
     }
