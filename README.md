@@ -40,7 +40,7 @@
 
 -   A postman collection JSON file is also included in the root directory as API documentation guide.
 
-#CRUD functionality using web
+# CRUD functionality using web
 
 -   Registered users can login with their credentials and perform CRUD
 -   Admin can see all tenants posts via web
