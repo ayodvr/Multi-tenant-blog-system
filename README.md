@@ -14,7 +14,7 @@
 
 -   Ensure to have Xampp / Localhost running
 
--   Run php artisan serve to start project
+-   Run "php artisan serve" to start project
 
 # Scope of project
 
@@ -39,3 +39,8 @@
 -   The database used for this project is SQLite kindly install the "SQLite 3 Editor" extension from the VsCode Marketplace
 
 -   A postman collection JSON file is also included in the root directory as API documentation guide.
+
+#CRUD functionality using web
+
+-   Registered users can login with their credentials and perform CRUD
+-   Admin can see all tenants posts via web
