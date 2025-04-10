@@ -1,5 +1,9 @@
 # Multi-tenant-blog-system
 
+# Setup Instructions
+
+-   Ensure to have Xampp / Localhost running
+
 -   Clone this project by running : git clone https://github.com/ayodvr/Multi-tenant-blog-system.git
 
 -   Install dependencies by running : composer install or composer update
@@ -11,8 +15,6 @@
 -   Run migrations using: php artisan migrate
 
 -   Seed Admin user by running: php artisan db:seed
-
--   Ensure to have Xampp / Localhost running
 
 -   Run "php artisan serve" to start project
 
